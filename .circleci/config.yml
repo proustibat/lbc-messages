@@ -57,7 +57,7 @@ jobs:
           at: ~/repo
       - run:
           name: "Unit tests and coverage"
-          command: CI=true yarn test
+          command: yarn test
   build:
     executor: docker-node
     working_directory: ~/repo
