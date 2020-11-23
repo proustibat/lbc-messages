@@ -36,7 +36,10 @@
     "lint": "prettier -w \"./**/*.{js,ts,tsx,json}\"",
     "predeploy": "mv build/index.html build/200.html",
     "deploy": "surge --project ./build",
-    "postdeploy": "mv build/200.html build/index.html"
+    "postdeploy": "mv build/200.html build/index.html",
+    "predeploy:coverage": "mv coverage/index.html coverage/200.html",
+    "deploy:coverage": "surge --project ./coverage",
+    "postdeploy:coverage": "mv coverage/200.html coverage/index.html"
   },
   "eslintConfig": {
     "extends": [
