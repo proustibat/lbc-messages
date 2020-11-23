@@ -16,7 +16,9 @@
     "@types/jest": "26.0.15",
     "@types/node": "12.0.0",
     "@types/react": "16.9.53",
-    "@types/react-dom": "16.9.8"
+    "@types/react-dom": "16.9.8",
+    "cz-conventional-changelog": "3.3.0",
+    "husky": "4.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -42,5 +44,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+    }
   }
 }

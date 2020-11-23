@@ -1,5 +1,7 @@
 # lbc-message
 
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 
@@ -29,6 +31,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
+
+#### Commits
+This repo is Commitizen-friendly. It means you'll be prompted to fill out any required commit fields at commit time. 
+Learn more about [commitizen cli](https://github.com/commitizen/cz-cli).
+
+[Husky](https://typicode.github.io/husky/#/) is used to enable `prepare-commit-msg` git hook. So you can just use `git commit` then follow the prompt of your terminal. 
 
 ## Testing
 
