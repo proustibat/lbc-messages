@@ -57,10 +57,6 @@ jobs:
       - run:
           name: "Unit tests and coverage"
           command: CI=true yarn test
-      - persist_to_workspace:
-          root: ~/repo
-          paths:
-            - node_modules
   build:
     docker:
       - image: circleci/node:14.12.0
@@ -71,12 +67,12 @@ jobs:
       - attach_workspace:
           at: ~/repo
       - run:
-          name: "c"
+          name: "Build the web app"
           command: yarn build
       - persist_to_workspace:
           root: ~/repo
           paths:
-            - node_modules
+            - build
   deployments:
     docker:
       - image: circleci/node:14.12.0
@@ -89,7 +85,3 @@ jobs:
       - run:
           name: "Deploy built web app with Surge"
           command: yarn deploy --domain https://messages.surge.sh
-      - persist_to_workspace:
-          root: ~/repo
-          paths:
-            - node_modules
