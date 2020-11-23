@@ -1,4 +1,4 @@
-# lbc-message
+# lbc-messages
 
 [![CircleCI](https://circleci.com/gh/proustibat/lbc-messages.svg?style=shield)](https://circleci.com/gh/proustibat/lbc-messages)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
@@ -57,14 +57,18 @@ Please, be sure you also [configure your IDE correctly](https://create-react-app
 
 ## Testing
 
-#### `yarn tdd`
+```
+yarn tdd
+```
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ## Production
 
-### `yarn build`
+```
+yarn build
+```
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -76,8 +80,8 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ## CI/CD
 
-### CircleCI
-We use [CircleCI](https://circleci.com/) to run jobs during the git worklfow.
+### Config, workflow and jobs
+We use [CircleCI](https://circleci.com/) to run jobs during the git flow.
 
 The config is in the `.circleci/config.yml`.
 
@@ -85,11 +89,13 @@ The pipelines' history of the current project is available [on this dashboard](h
 
 The `main` workflow runs 4 jobs: 
 - `prepare`: installs node modules and save it to the current workspace
-- `test`: requires prepare job
+- `testing`: requires prepare job
 - `build`: requires prepare job
-- `deploy`: requires test and build. 
+- `deployments`: requires test and build. 
 
-### Deployment
+### Deployments
+
+#### The web app
 We use [Surge](https://surge.sh/) to host our web app, a tool for static web publishing for frontend developers.
 CircleCI deploys the app on [https://messages.surge.sh](https://messages.surge.sh/) after each push on the main branch. 
 
@@ -99,8 +105,6 @@ A surge token has been added to the [CircleCI variables environment](https://cir
 
 Note the `predeploy` and `postddeploy` scripts. It's used to make the react routing [compliant with the surge config](https://surge.sh/help/adding-a-200-page-for-client-side-routing).
 
-### Artifacts
-
 #### Coverage and unit test reports
 Since `testing` job runs at each pull request or at each push on master, the job save junit report and coverage reports as artifacts.
 
@@ -108,6 +112,8 @@ Here is how it looks like on CircleCI dashboard:
 ![Junit Report](https://imgur.com/c389R91.png)
 
 ![Coverage](https://imgur.com/KwmGkqt.png)
+
+For the `main` branch, the coverage reports will be deployed on [https://messages-coverage.surge.sh](https://messages-coverage.surge.sh) by the CI/CD.
 
 ## Learn More
 

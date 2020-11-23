@@ -99,3 +99,6 @@ jobs:
       - run:
           name: "Deploy built web app with Surge"
           command: yarn deploy --domain https://messages.surge.sh
+      - run:
+          name: "Deploy jest coverage artifacts"
+          command: yarn deploy:coverage --domain https://messages-coverage.surge.sh
