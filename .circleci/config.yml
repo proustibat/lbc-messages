@@ -58,6 +58,21 @@ jobs:
       - run:
           name: "Unit tests and coverage"
           command: yarn test
+          environment:
+            JEST_JUNIT_OUTPUT_DIR: "reports/junit/junit.xml"
+      - store_test_results:
+          path: reports/junit
+      - store_artifacts:
+          name: "Store tests report"
+          path: reports/junit
+      - store_artifacts:
+          name: "Store coverage report"
+          path: coverage
+      - persist_to_workspace:
+          root: ~/repo
+          paths:
+            - coverage
+            - reports
   build:
     executor: docker-node
     working_directory: ~/repo

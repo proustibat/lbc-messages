@@ -57,11 +57,10 @@ Please, be sure you also [configure your IDE correctly](https://create-react-app
 
 ## Testing
 
-#### `yarn test`
+#### `yarn tdd`
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
 
 ## Production
 
@@ -99,6 +98,16 @@ Then you'll need to define your own domain.
 A surge token has been added to the [CircleCI variables environment](https://circleci.com/docs/2.0/env-vars/) in order to deploy on our [demo domain](https://messages.surge.sh).
 
 Note the `predeploy` and `postddeploy` scripts. It's used to make the react routing [compliant with the surge config](https://surge.sh/help/adding-a-200-page-for-client-side-routing).
+
+### Artifacts
+
+#### Coverage and unit test reports
+Since `testing` job runs at each pull request or at each push on master, the job save junit report and coverage reports as artifacts.
+
+Here is how it looks like on CircleCI dashboard:
+![Junit Report](https://imgur.com/c389R91.png)
+
+![Coverage](https://imgur.com/KwmGkqt.png)
 
 ## Learn More
 
