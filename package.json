@@ -19,17 +19,19 @@
     "@types/react-dom": "17.0.0",
     "cz-conventional-changelog": "3.3.0",
     "husky": "4.3.0",
+    "jest-junit": "12.0.0",
     "prettier": "2.2.0",
     "prettier-eslint": "12.0.0",
     "prettier-eslint-cli": "5.0.0",
     "pretty-quick": "3.1.0",
-    "surge": "0.21.7"
+    "surge": "0.21.7",
+    "ts-jest": "26.4.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "test:watch": "react-scripts --inspect-brk test --runInBand --no-cache",
+    "tdd": "react-scripts test",
+    "test": "CI=true react-scripts test --collectCoverage=true --reporters=default --reporters=jest-junit",
     "eject": "react-scripts eject",
     "lint": "prettier -w \"./**/*.{js,ts,tsx,json}\"",
     "predeploy": "mv build/index.html build/200.html",
@@ -64,5 +66,8 @@
       "pre-commit": "pretty-quick --staged--verbose --pattern \"./**/*.{js,ts,tsx,json}\"",
       "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
     }
+  },
+  "jest": {
+    "clearMocks": true
   }
 }
