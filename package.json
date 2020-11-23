@@ -22,7 +22,8 @@
     "prettier": "2.2.0",
     "prettier-eslint": "12.0.0",
     "prettier-eslint-cli": "5.0.0",
-    "pretty-quick": "3.1.0"
+    "pretty-quick": "3.1.0",
+    "surge": "0.21.7"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -30,7 +31,10 @@
     "test": "react-scripts test",
     "test:watch": "react-scripts --inspect-brk test --runInBand --no-cache",
     "eject": "react-scripts eject",
-    "lint": "prettier -w \"./**/*.{js,ts,tsx,json}\""
+    "lint": "prettier -w \"./**/*.{js,ts,tsx,json}\"",
+    "predeploy": "mv build/index.html build/200.html",
+    "deploy": "surge --project ./build",
+    "postdeploy": "mv build/200.html build/index.html"
   },
   "eslintConfig": {
     "extends": [

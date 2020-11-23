@@ -11,6 +11,10 @@ workflows:
       - build:
           requires:
             - prepare
+      - deployments:
+          requires:
+            - test
+            - build
 jobs:
   prepare:
     docker:
@@ -62,6 +66,24 @@ jobs:
       - run:
           name: "Build the web app"
           command: yarn build
+      - persist_to_workspace:
+          root: ~/repo
+          paths:
+            - node_modules
+  deployments:
+    docker:
+      - image: circleci/node:14.12.0
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: "Deploy built web app with Surge"
+          command: yarn deploy --domain https://messages.surge.sh
+          branches:
+            only:
+              - master
       - persist_to_workspace:
           root: ~/repo
           paths:

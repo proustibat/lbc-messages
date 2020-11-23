@@ -4,6 +4,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## DEMO
+Please visit [https://messages.surge.sh](https://messages.surge.sh).
 
 ## Requirements
 Be sure [Node](https://nodejs.org/) and [NPM](https://www.npmjs.com/) are installed.
@@ -40,7 +42,7 @@ You will also see any lint errors in the console.
 This repo is Commitizen-friendly. It means you'll be prompted to fill out any required commit fields at commit time. 
 Learn more about [commitizen cli](https://github.com/commitizen/cz-cli).
 
-[Husky](https://typicode.github.io/husky/#/) is used to enable `prepare-commit-msg` git hook. So you can just use `git commit` then follow the prompt of your terminal. 
+[Husky](https://typicode.github.io/husky) is used to enable `prepare-commit-msg` git hook. So you can just use `git commit` then follow the prompt of your terminal. 
 
 #### Linting
 By using [pretty-quick](https://github.com/azz/pretty-quick) we run [Prettier](https://prettier.io/) on changed files before each commit (on the `pre-commit` git hook).
@@ -72,6 +74,30 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+## CI/CD
+
+### CircleCI
+We use [CircleCI](https://circleci.com/) to run jobs during the git worklfow.
+
+The config is in the `.circleci/config.yml`.
+
+The pipelines' history of the current project is available [on this dashboard](https://app.circleci.com/pipelines/github/proustibat/lbc-messages).
+
+The `main` workflow runs 4 jobs: 
+- `prepare`: installs node modules and save it to the current workspace
+- `test`: requires prepare job
+- `build`: requires prepare job
+- `deploy`: requires test and build. 
+
+### Deployment
+We use [Surge](https://surge.sh/) to host our web app, a tool for static web publishing for frontend developers.
+CircleCI deploys the app on [https://messages.surge.sh](https://messages.surge.sh/) after each push on the main branch. 
+
+Note that you can deploy manually by running `yarn deploy`. 
+Then you'll need to define your own domain. 
+A surge token has been added to the [CircleCI variables environment](https://circleci.com/docs/2.0/env-vars/) in order to deploy on our [demo domain](https://messages.surge.sh).
+
+Note the `predeploy` and `postddeploy` scripts. It's used to make the react routing [compliant with the surge config](https://surge.sh/help/adding-a-200-page-for-client-side-routing).
 
 ## Learn More
 
@@ -79,6 +105,9 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-## Other used tools
-
-None
+### About other used tools
+- [Husky](https://typicode.github.io/husky)
+- [Prettier](https://prettier.io/)
+- [ESLint](https://eslint.org/)
+- [Surge](https://surge.sh)
+- [CircleCI](https://circleci.com)
