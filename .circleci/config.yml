@@ -5,7 +5,7 @@ workflows:
   main:
     jobs:
       - prepare
-      - test:
+      - testing:
           requires:
             - prepare
       - build:
@@ -13,16 +13,16 @@ workflows:
             - prepare
       - deployments:
           requires:
-            - test
+            - testing
             - build
 jobs:
   prepare:
     docker:
       - image: circleci/node:14.12.0
     working_directory: ~/repo
+    description: "Download and cache dependencies"
     steps:
       - checkout
-      # Download and cache dependencies
       - restore_cache:
           name: Restore Yarn Package Cache
           keys:
@@ -40,10 +40,11 @@ jobs:
           root: ~/repo
           paths:
             - node_modules
-  test:
+  testing:
     docker:
       - image: circleci/node:14.12.0
     working_directory: ~/repo
+    description: "Run unit tests and collect coverage reports"
     steps:
       - checkout
       - attach_workspace:
@@ -59,12 +60,13 @@ jobs:
     docker:
       - image: circleci/node:14.12.0
     working_directory: ~/repo
+    description: "Build the web app"
     steps:
       - checkout
       - attach_workspace:
           at: ~/repo
       - run:
-          name: "Build the web app"
+          name: "c"
           command: yarn build
       - persist_to_workspace:
           root: ~/repo
@@ -74,6 +76,7 @@ jobs:
     docker:
       - image: circleci/node:14.12.0
     working_directory: ~/repo
+    description: "Deploy built web app with Surge"
     steps:
       - checkout
       - attach_workspace:
