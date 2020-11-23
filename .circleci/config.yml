@@ -23,7 +23,7 @@ workflows:
 jobs:
   prepare:
     docker:
-      - image: circleci/node:14.12.0
+      - image: circleci/node:14.15.1
     working_directory: ~/repo
     description: "Download and cache dependencies"
     steps:
@@ -47,7 +47,7 @@ jobs:
             - node_modules
   testing:
     docker:
-      - image: circleci/node:14.12.0
+      - image: circleci/node:14.15.1
     working_directory: ~/repo
     description: "Run unit tests and collect coverage reports"
     steps:
@@ -59,7 +59,7 @@ jobs:
           command: CI=true yarn test
   build:
     docker:
-      - image: circleci/node:14.12.0
+      - image: circleci/node:14.15.1
     working_directory: ~/repo
     description: "Build the web app"
     steps:
@@ -75,7 +75,7 @@ jobs:
             - build
   deployments:
     docker:
-      - image: circleci/node:14.12.0
+      - image: circleci/node:14.15.1
     working_directory: ~/repo
     description: "Deploy built web app with Surge"
     steps:
