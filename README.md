@@ -24,7 +24,11 @@ This will clone the repository then it will install needed packages and will mak
 
 ## Development
 
-#### `yarn start`
+#### Run the app locally
+
+```
+yarn start
+```
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -37,6 +41,16 @@ This repo is Commitizen-friendly. It means you'll be prompted to fill out any re
 Learn more about [commitizen cli](https://github.com/commitizen/cz-cli).
 
 [Husky](https://typicode.github.io/husky/#/) is used to enable `prepare-commit-msg` git hook. So you can just use `git commit` then follow the prompt of your terminal. 
+
+#### Linting
+By using [pretty-quick](https://github.com/azz/pretty-quick) we run [Prettier](https://prettier.io/) on changed files before each commit (on the `pre-commit` git hook).
+
+We added Prettier to the default linter used by create-react-app that is [ESLint](https://create-react-app.dev/docs/setting-up-your-editor/#extending-or-replacing-the-default-eslint-config).
+Our configuration of Prettier allows Eslint to be used with prettier because of [eslint-prettier](https://prettier.io/docs/en/integrating-with-linters.html). 
+ 
+If you wanna run the linters by your own, you can run `yarn lint` that will run Prettier.
+
+Please, be sure you also [configure your IDE correctly](https://create-react-app.dev/docs/setting-up-your-editor/).
 
 ## Testing
 
