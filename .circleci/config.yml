@@ -15,6 +15,11 @@ workflows:
           requires:
             - testing
             - build
+          filters:
+            branches:
+              only:
+                - main
+
 jobs:
   prepare:
     docker:
@@ -84,9 +89,6 @@ jobs:
       - run:
           name: "Deploy built web app with Surge"
           command: yarn deploy --domain https://messages.surge.sh
-          branches:
-            only:
-              - master
       - persist_to_workspace:
           root: ~/repo
           paths:
