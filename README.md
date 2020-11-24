@@ -58,14 +58,14 @@ Learn more about [commitizen cli](https://github.com/commitizen/cz-cli).
 #### Linting
 By using [pretty-quick](https://github.com/azz/pretty-quick) we run [Prettier](https://prettier.io/) on changed files before each commit (on the `pre-commit` git hook).
 
-We added Prettier to the default linter used by create-react-app that is [ESLint](https://create-react-app.dev/docs/setting-up-your-editor/#extending-or-replacing-the-default-eslint-config).
-Our configuration of Prettier allows Eslint to be used with prettier because of [eslint-prettier](https://prettier.io/docs/en/integrating-with-linters.html). 
+We added Prettier to the default linter used by create-react-app which is [ESLint](https://create-react-app.dev/docs/setting-up-your-editor/#extending-or-replacing-the-default-eslint-config).
+Our configuration of Prettier allows ESLint to be used with Prettier because of [eslint-prettier](https://prettier.io/docs/en/integrating-with-linters.html). 
  
 If you wanna run the linters by your own, you can run `yarn lint` that will run Prettier.
 
-Please, be sure you also [configure your IDE correctly](https://create-react-app.dev/docs/setting-up-your-editor/).
+Please, be sure you also [configured your IDE correctly](https://create-react-app.dev/docs/setting-up-your-editor/).
 
-## Testing
+## Unit Testing
 
 ```
 yarn tdd
@@ -85,7 +85,7 @@ yarn storybook
 ```
 Then open [http://localhost:6006](http://localhost:6006) to view it in the browser.
 
-You can write any stories file you want by writing them in a file with the extension `.stories.tsx`.
+You can write any stories file you want by writing them in a file with the `.stories.tsx` extension.
 
 ### Build and deploy the Storybook app
 
@@ -106,8 +106,6 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
 ## CI/CD
 
 ### Config, workflow and jobs
@@ -117,14 +115,18 @@ The config is in the `.circleci/config.yml`.
 
 The pipelines' history of the current project is available [on this dashboard](https://app.circleci.com/pipelines/github/proustibat/lbc-messages).
 
-The `main` workflow runs 5 jobs: 
+The `main` workflow runs 6 jobs: 
 - `prepare`: installs node modules and save it to the current workspace
-- `testing`: requires prepare job
+- `unit-testing`: requires prepare job, runs tests
+- `sonar`: requires unit-testing, runs sonar-scanner
 - `build-app`: requires prepare job
 - `build-storybook`: requires prepare job
-- `deployments`: requires test and build. 
+- `deployments`: runs different steps that require different build workflows. 
 
-![Main workflow](https://imgur.com/6K2aBe2.png)
+
+| *Main workflow on the main branch*                             | *Main workflow on a pull request*                                |
+:---------------------------------------------------------------:|:-----------------------------------------------------------------:|
+| ![Main workflow on main branch](https://imgur.com/6K2aBe2.png) | ![Main workflow on a pull request](https://imgur.com/6K2aBe2.png) |
 
 ### Deployments
 
@@ -142,14 +144,19 @@ Note the `predeploy` and `postddeploy` scripts. It's used to make the react rout
 Since `testing` job runs at each pull request or at each push on master, the job save junit report and coverage reports as artifacts.
 
 Here is how it looks like on CircleCI dashboard:
-![Junit Report](https://imgur.com/3qdmA9K.png)
 
-![Coverage](https://imgur.com/N5XxXJ5.png)
+| ![Junit Report](https://imgur.com/3qdmA9K.png) | ![Coverage](https://imgur.com/N5XxXJ5.png) |
+:-----------------------------------------------:|:------------------------------------------:|
 
 For the `main` branch, the coverage reports will be deployed on [https://coverage.messages.surge.sh](https://coverage.messages.surge.sh) by the CI/CD.
 
+| ![Deployments job](https://imgur.com/zPW02TZ.png) |
+:--------------------------------------------------:|
 
-![Deployments job](https://imgur.com/zPW02TZ.png)
+
+
+#### Storybook
+As mentionned in the Storybook section, the design system is deployed at [https://storybook.messages.surge.sh](https://storybook.messages.surge.sh).
 
 ### Code quality tracking
 We use [Sonarcloud](https://sonarcloud.io/documentation) to detect code quality issues, the maintainability, reliability and security of the code.
@@ -157,8 +164,9 @@ Visit the [public dashboard of the project](https://sonarcloud.io/dashboard?id=p
 
 
 The CI/CD runs the sonar scanner on each push.
-![Sonarcloud job](https://imgur.com/3yHaSUW.png)
 
+| ![Sonarcloud job](https://imgur.com/3yHaSUW.png) |
+:-------------------------------------------------:|
 
 ## Learn More
 

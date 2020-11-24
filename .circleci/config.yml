@@ -10,16 +10,16 @@ workflows:
   main:
     jobs:
       - prepare
-      - testing:
+      - unit-testing:
           requires:
             - prepare
-      - build:
+      - build-app:
           requires:
             - prepare
       - deployments:
 #          requires:
-#            - testing
-#            - build
+#            - unit-testing
+#            - build-app
           filters:
             branches:
               only:
@@ -29,7 +29,7 @@ workflows:
             - prepare
       - sonar:
           requires:
-            - testing
+            - unit-testing
           context: SonarCloud
 jobs:
   prepare:
@@ -55,7 +55,7 @@ jobs:
           root: ~/repo
           paths:
             - node_modules
-  testing:
+  unit-testing:
     executor: docker-node
     working_directory: ~/repo
     description: "Run unit tests and collect coverage reports"
@@ -81,7 +81,7 @@ jobs:
           paths:
             - coverage
             - reports
-  build:
+  build-app:
     executor: docker-node
     working_directory: ~/repo
     description: "Build the web app"
@@ -126,12 +126,12 @@ jobs:
           name: "Deploy built web app with Surge"
           command: yarn deploy --domain https://messages.surge.sh
           requires:
-            - build
+            - build-app
       - run:
           name: "Deploy jest coverage artifacts"
           command: yarn deploy:coverage --domain https://coverage.messages.surge.sh
           requires:
-            - testing
+            - unit-testing
       - run:
           name: "Deploy storybook"
           command: yarn deploy:storybook --domain https://storybook.messages.surge.sh
