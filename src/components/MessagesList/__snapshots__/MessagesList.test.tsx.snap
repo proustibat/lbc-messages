@@ -1,108 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Message should render correctly by default 1`] = `
-<div>
+exports[`MessagesList should render the messages 1`] = `
+Array [
   <div
     class="MuiPaper-root MuiAccordion-root Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
     data-testid="message-accordion"
   >
     <div
-      aria-controls="uuid-content"
+      aria-controls="111-content"
       aria-disabled="false"
       aria-expanded="true"
       class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded"
-      id="uuid-header"
-      role="button"
-      tabindex="0"
-    >
-      <div
-        class="MuiAccordionSummary-content Mui-expanded"
-      >
-        <svg
-          aria-hidden="true"
-          class="MuiSvgIcon-root"
-          focusable="false"
-          viewBox="0 0 24 24"
-        >
-          <path
-            d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"
-          />
-        </svg>
-        <p
-          class="MuiTypography-root heading_fontSize-0.9375rem heading_marginLeft-8 MuiTypography-body1"
-          data-testid="title"
-        >
-          bla bli blou
-        </p>
-      </div>
-      <div
-        aria-disabled="false"
-        aria-hidden="true"
-        class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
-      >
-        <span
-          class="MuiIconButton-label"
-        >
-          <svg
-            aria-hidden="true"
-            class="MuiSvgIcon-root"
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
-            />
-          </svg>
-        </span>
-        <span
-          class="MuiTouchRipple-root"
-        />
-      </div>
-    </div>
-    <div
-      class="MuiCollapse-container MuiCollapse-entered"
-      style="min-height: 0px;"
-    >
-      <div
-        class="MuiCollapse-wrapper"
-      >
-        <div
-          class="MuiCollapse-wrapperInner"
-        >
-          <div
-            aria-labelledby="uuid-header"
-            id="uuid-content"
-            role="region"
-          >
-            <div
-              class="MuiAccordionDetails-root"
-            >
-              <p
-                class="MuiTypography-root body_fontSize-0.9375rem body_color-rgba(0, 0, 0, 0.54) MuiTypography-body1"
-              >
-                body content
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-`;
-
-exports[`Message should render correctly with isPrivate true 1`] = `
-<div>
-  <div
-    class="MuiPaper-root MuiAccordion-root Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
-    data-testid="message-accordion"
-  >
-    <div
-      aria-controls="uuid-content"
-      aria-disabled="false"
-      aria-expanded="true"
-      class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded"
-      id="uuid-header"
+      id="111-header"
       role="button"
       tabindex="0"
     >
@@ -123,7 +32,7 @@ exports[`Message should render correctly with isPrivate true 1`] = `
           class="MuiTypography-root heading_fontSize-0.9375rem heading_marginLeft-8 MuiTypography-body1"
           data-testid="title"
         >
-          bla bli blou
+          title 1
         </p>
       </div>
       <div
@@ -161,8 +70,8 @@ exports[`Message should render correctly with isPrivate true 1`] = `
           class="MuiCollapse-wrapperInner"
         >
           <div
-            aria-labelledby="uuid-header"
-            id="uuid-content"
+            aria-labelledby="111-header"
+            id="111-content"
             role="region"
           >
             <div
@@ -171,74 +80,185 @@ exports[`Message should render correctly with isPrivate true 1`] = `
               <p
                 class="MuiTypography-root body_fontSize-0.9375rem body_color-rgba(0, 0, 0, 0.54) MuiTypography-body1"
               >
-                body content
+                body 1
               </p>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
-`;
-
-exports[`Message should toggle the expanded body when clicking the title 1`] = `
-"Snapshot Diff:
-- First value
-+ Second value
-
-@@ -1,21 +1,21 @@
-  <DocumentFragment>
+  </div>,
+  <div
+    class="MuiPaper-root MuiAccordion-root Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+    data-testid="message-accordion"
+  >
     <div
--     class=\\"MuiPaper-root MuiAccordion-root Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded\\"
-+     class=\\"MuiPaper-root MuiAccordion-root MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded\\"
-      data-testid=\\"message-accordion\\"
+      aria-controls="222-content"
+      aria-disabled="false"
+      aria-expanded="true"
+      class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded"
+      id="222-header"
+      role="button"
+      tabindex="0"
     >
       <div
-        aria-controls=\\"uuid-content\\"
-        aria-disabled=\\"false\\"
--       aria-expanded=\\"true\\"
--       class=\\"MuiButtonBase-root MuiAccordionSummary-root Mui-expanded\\"
-+       aria-expanded=\\"false\\"
-+       class=\\"MuiButtonBase-root MuiAccordionSummary-root\\"
-        id=\\"uuid-header\\"
-        role=\\"button\\"
-        tabindex=\\"0\\"
+        class="MuiAccordionSummary-content Mui-expanded"
       >
-        <div
--         class=\\"MuiAccordionSummary-content Mui-expanded\\"
-+         class=\\"MuiAccordionSummary-content\\"
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
         >
-          <svg
-            aria-hidden=\\"true\\"
-            class=\\"MuiSvgIcon-root\\"
-            focusable=\\"false\\"
-@@ -33,11 +33,11 @@
-          </p>
-        </div>
-        <div
-          aria-disabled=\\"false\\"
-          aria-hidden=\\"true\\"
--         class=\\"MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd\\"
-+         class=\\"MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon MuiIconButton-edgeEnd\\"
-        >
-          <span
-            class=\\"MuiIconButton-label\\"
-          >
-            <svg
-@@ -55,12 +55,12 @@
-            class=\\"MuiTouchRipple-root\\"
+          <path
+            d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"
           />
-        </div>
+        </svg>
+        <p
+          class="MuiTypography-root heading_fontSize-0.9375rem heading_marginLeft-8 MuiTypography-body1"
+          data-testid="title"
+        >
+          title 2
+        </p>
       </div>
       <div
--       class=\\"MuiCollapse-container MuiCollapse-entered\\"
--       style=\\"min-height: 0px;\\"
-+       class=\\"MuiCollapse-container\\"
-+       style=\\"min-height: 0px; height: 0px; transition-duration: 0ms;\\"
+        aria-disabled="false"
+        aria-hidden="true"
+        class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
+      >
+        <span
+          class="MuiIconButton-label"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+            />
+          </svg>
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </div>
+    </div>
+    <div
+      class="MuiCollapse-container MuiCollapse-entered"
+      style="min-height: 0px;"
+    >
+      <div
+        class="MuiCollapse-wrapper"
       >
         <div
-          class=\\"MuiCollapse-wrapper\\"
+          class="MuiCollapse-wrapperInner"
         >
-          <div"
+          <div
+            aria-labelledby="222-header"
+            id="222-content"
+            role="region"
+          >
+            <div
+              class="MuiAccordionDetails-root"
+            >
+              <p
+                class="MuiTypography-root body_fontSize-0.9375rem body_color-rgba(0, 0, 0, 0.54) MuiTypography-body1"
+              >
+                body 2
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="MuiPaper-root MuiAccordion-root Mui-expanded MuiAccordion-rounded MuiPaper-elevation1 MuiPaper-rounded"
+    data-testid="message-accordion"
+  >
+    <div
+      aria-controls="333-content"
+      aria-disabled="false"
+      aria-expanded="true"
+      class="MuiButtonBase-root MuiAccordionSummary-root Mui-expanded"
+      id="333-header"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="MuiAccordionSummary-content Mui-expanded"
+      >
+        <svg
+          aria-hidden="true"
+          class="MuiSvgIcon-root"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"
+          />
+        </svg>
+        <p
+          class="MuiTypography-root heading_fontSize-0.9375rem heading_marginLeft-8 MuiTypography-body1"
+          data-testid="title"
+        >
+          title 3
+        </p>
+      </div>
+      <div
+        aria-disabled="false"
+        aria-hidden="true"
+        class="MuiButtonBase-root MuiIconButton-root MuiAccordionSummary-expandIcon Mui-expanded MuiIconButton-edgeEnd"
+      >
+        <span
+          class="MuiIconButton-label"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"
+            />
+          </svg>
+        </span>
+        <span
+          class="MuiTouchRipple-root"
+        />
+      </div>
+    </div>
+    <div
+      class="MuiCollapse-container MuiCollapse-entered"
+      style="min-height: 0px;"
+    >
+      <div
+        class="MuiCollapse-wrapper"
+      >
+        <div
+          class="MuiCollapse-wrapperInner"
+        >
+          <div
+            aria-labelledby="333-header"
+            id="333-content"
+            role="region"
+          >
+            <div
+              class="MuiAccordionDetails-root"
+            >
+              <p
+                class="MuiTypography-root body_fontSize-0.9375rem body_color-rgba(0, 0, 0, 0.54) MuiTypography-body1"
+              >
+                body 3
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
 `;

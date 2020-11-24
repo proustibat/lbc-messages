@@ -43,7 +43,7 @@ export const Message = ({
     setExpanded(isExpanded);
 
   return (
-    <Accordion expanded={expanded} onChange={handleChange}>
+    <Accordion expanded={expanded} onChange={handleChange} data-testid="message-accordion">
       <AccordionSummary
         expandIcon={<ExpandMore />}
         aria-controls={`${id}-content`}
