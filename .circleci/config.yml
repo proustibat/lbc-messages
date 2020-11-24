@@ -16,17 +16,18 @@ workflows:
       - build-app:
           requires:
             - prepare
+      - build-storybook:
+          requires:
+            - prepare
       - deployments:
-#          requires:
-#            - unit-testing
-#            - build-app
+          requires:
+            - unit-testing
+            - build-app
+            - build-storybook
           filters:
             branches:
               only:
                 - main
-      - build-storybook:
-          requires:
-            - prepare
       - sonar:
           requires:
             - unit-testing
@@ -125,18 +126,12 @@ jobs:
       - run:
           name: "Deploy built web app with Surge"
           command: yarn deploy --domain https://messages.surge.sh
-          requires:
-            - build-app
       - run:
           name: "Deploy jest coverage artifacts"
           command: yarn deploy:coverage --domain https://coverage.messages.surge.sh
-          requires:
-            - unit-testing
       - run:
           name: "Deploy storybook"
           command: yarn deploy:storybook --domain https://storybook.messages.surge.sh
-          requires:
-            - build-storybook
   sonar:
     executor: docker-node
     working_directory: ~/repo
