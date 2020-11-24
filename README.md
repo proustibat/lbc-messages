@@ -14,10 +14,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## DEMO
-- Web app: [https://messages.surge.sh](https://messages.surge.sh).
-- Storybook: [https://storybook.messages.surge.sh/](https://storybook.messages.surge.sh/).
-- Coverage report: [https://coverage.messages.surge.sh/](https://coverage.messages.surge.sh/).
-- Sonarcloud dashboard: [https://sonarcloud.io/dashboard?id=proustibat_lbc-messages](https://sonarcloud.io/dashboard?id=proustibat_lbc-messages).
+[![Live Demo Web App](https://img.shields.io/badge/Live%20Demo-%20Web%20App-brightgreen.svg)](https://messages.surge.sh)
+[![Live Demo Storybook](https://img.shields.io/badge/Live%20Demo-%20Storybook-FF4785.svg)](https://storybook.messages.surge.sh)
+[![Live Demo Coverage Report](https://img.shields.io/badge/Live%20Demo-%20Coverage-FFAE00.svg)](https://coverage.messages.surge.sh)
 
 ## REQUIREMENTS
 Be sure [Node](https://nodejs.org/) and [NPM](https://www.npmjs.com/) are installed.
