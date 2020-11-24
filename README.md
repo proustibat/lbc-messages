@@ -121,7 +121,7 @@ The `main` workflow runs 5 jobs:
 - `prepare`: installs node modules and save it to the current workspace
 - `testing`: requires prepare job
 - `build-app`: requires prepare job
-- `storybook`: requires prepare job
+- `build-storybook`: requires prepare job
 - `deployments`: requires test and build. 
 
 ![Main workflow](https://imgur.com/6K2aBe2.png)
