@@ -93,6 +93,8 @@ The `main` workflow runs 4 jobs:
 - `build`: requires prepare job
 - `deployments`: requires test and build. 
 
+![Main workflow](https://imgur.com/6K2aBe2.png)
+
 ### Deployments
 
 #### The web app
@@ -109,11 +111,14 @@ Note the `predeploy` and `postddeploy` scripts. It's used to make the react rout
 Since `testing` job runs at each pull request or at each push on master, the job save junit report and coverage reports as artifacts.
 
 Here is how it looks like on CircleCI dashboard:
-![Junit Report](https://imgur.com/c389R91.png)
+![Junit Report](https://imgur.com/3qdmA9K.png)
 
-![Coverage](https://imgur.com/KwmGkqt.png)
+![Coverage](https://imgur.com/N5XxXJ5.png)
 
 For the `main` branch, the coverage reports will be deployed on [https://messages-coverage.surge.sh](https://messages-coverage.surge.sh) by the CI/CD.
+
+
+![Deployments job](https://imgur.com/zPW02TZ.png)
 
 ## Learn More
 
