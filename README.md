@@ -14,7 +14,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## DEMO
-Please visit [https://messages.surge.sh](https://messages.surge.sh).
+- The web app: [https://messages.surge.sh](https://messages.surge.sh).
+- The Storybook: [https://storybook.messages.surge.sh/](https://storybook.messages.surge.sh/).
+- The coverage report: [https://coverage.messages.surge.sh/](https://coverage.messages.surge.sh/).
 
 ## Requirements
 Be sure [Node](https://nodejs.org/) and [NPM](https://www.npmjs.com/) are installed.
@@ -72,6 +74,26 @@ yarn tdd
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+## Design system
+
+### Developing UI
+We use [Storybook](https://storybook.js.org/docs/react/get-started/introduction) for UI development. It makes development faster and easier by isolating components.
+
+Run it in watch mode in order to develop UIs:
+```
+yarn storybook
+```
+Then open [http://localhost:6006](http://localhost:6006) to view it in the browser.
+
+You can write any stories file you want by writing them in a file with the extension `.stories.tsx`.
+
+### Build and deploy the Storybook app
+
+`yarn build-storybook` create a minified app ready to be deployed in `storybook-static` directory.
+
+Our CI/CD run the build then deploy its content during the `deployments` job for the `main` branch on [https://storybook.messages.surge.sh](https://storybook.messages.surge.sh).
+For other branches or pull requests, built storybook is in artifacts.
+
 ## Production
 
 ```
@@ -95,10 +117,11 @@ The config is in the `.circleci/config.yml`.
 
 The pipelines' history of the current project is available [on this dashboard](https://app.circleci.com/pipelines/github/proustibat/lbc-messages).
 
-The `main` workflow runs 4 jobs: 
+The `main` workflow runs 5 jobs: 
 - `prepare`: installs node modules and save it to the current workspace
 - `testing`: requires prepare job
-- `build`: requires prepare job
+- `build-app`: requires prepare job
+- `storybook`: requires prepare job
 - `deployments`: requires test and build. 
 
 ![Main workflow](https://imgur.com/6K2aBe2.png)
@@ -123,7 +146,7 @@ Here is how it looks like on CircleCI dashboard:
 
 ![Coverage](https://imgur.com/N5XxXJ5.png)
 
-For the `main` branch, the coverage reports will be deployed on [https://messages-coverage.surge.sh](https://messages-coverage.surge.sh) by the CI/CD.
+For the `main` branch, the coverage reports will be deployed on [https://coverage.messages.surge.sh](https://coverage.messages.surge.sh) by the CI/CD.
 
 
 ![Deployments job](https://imgur.com/zPW02TZ.png)

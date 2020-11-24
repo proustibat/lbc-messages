@@ -10,6 +10,12 @@
     "web-vitals": "1.0.1"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "6.1.4",
+    "@storybook/addon-essentials": "6.1.4",
+    "@storybook/addon-links": "6.1.4",
+    "@storybook/node-logger": "6.1.4",
+    "@storybook/preset-create-react-app": "3.1.5",
+    "@storybook/react": "6.1.4",
     "@testing-library/jest-dom": "5.11.6",
     "@testing-library/react": "11.2.2",
     "@testing-library/user-event": "12.2.2",
@@ -39,7 +45,12 @@
     "postdeploy": "mv build/200.html build/index.html",
     "predeploy:coverage": "mv coverage/lcov-report/index.html coverage/lcov-report/200.html",
     "deploy:coverage": "surge --project ./coverage/lcov-report",
-    "postdeploy:coverage": "mv coverage/lcov-report/200.html coverage/lcov-report/index.html"
+    "postdeploy:coverage": "mv coverage/lcov-report/200.html coverage/lcov-report/index.html",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public",
+    "predeploy:storybook": "mv storybook-static/index.html storybook-static/200.html",
+    "deploy:storybook": "surge --project ./storybook-static",
+    "postdeploy:storybook": "mv storybook-static/200.html storybook-static/index.html"
   },
   "eslintConfig": {
     "extends": [
@@ -71,6 +82,14 @@
     }
   },
   "jest": {
-    "clearMocks": true
+    "clearMocks": true,
+    "collectCoverageFrom": [
+      "./**/*.{ts,tsx,js}",
+      "!./**/*.stories.{tsx,ts}",
+      "!./src/stories/**/*.tsx",
+      "!./src/react-app-env.d.ts",
+      "!./src/reportWebVitals.ts",
+      "!./src/setupTests.ts"
+    ]
   }
 }
