@@ -2,6 +2,14 @@
 
 [![CircleCI](https://circleci.com/gh/proustibat/lbc-messages.svg?style=shield)](https://circleci.com/gh/proustibat/lbc-messages)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+[![Renovate enabled](https://img.shields.io/badge/RenovateBot-enabled-brightgreen.svg)](https://renovatebot.com/)
+
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=proustibat_lbc-messages&metric=alert_status)](https://sonarcloud.io/dashboard?id=proustibat_lbc-messages)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=proustibat_lbc-messages&metric=coverage)](https://sonarcloud.io/dashboard?id=proustibat_lbc-messages)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=proustibat_lbc-messages&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=proustibat_lbc-messages)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=proustibat_lbc-messages&metric=code_smells)](https://sonarcloud.io/dashboard?id=proustibat_lbc-messages)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=proustibat_lbc-messages&metric=bugs)](https://sonarcloud.io/dashboard?id=proustibat_lbc-messages)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=proustibat_lbc-messages&metric=sqale_index)](https://sonarcloud.io/dashboard?id=proustibat_lbc-messages)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -119,6 +127,15 @@ For the `main` branch, the coverage reports will be deployed on [https://message
 
 
 ![Deployments job](https://imgur.com/zPW02TZ.png)
+
+### Code quality tracking
+We use [Sonarcloud](https://sonarcloud.io/documentation) to detect code quality issues, the maintainability, reliability and security of the code.
+Visit the [public dashboard of the project](https://sonarcloud.io/dashboard?id=proustibat_lbc-messages).
+
+
+The CI/CD runs the sonar scanner on each push.
+![Sonarcloud job](https://imgur.com/3yHaSUW.png)
+
 
 ## Learn More
 
