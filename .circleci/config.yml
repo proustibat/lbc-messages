@@ -1,6 +1,7 @@
 version: 2.1
 orbs:
   node: circleci/node@4.1.0
+  sonarcloud: sonarsource/sonarcloud@1.0.1
 executors:
   docker-node:
     docker:
@@ -23,6 +24,10 @@ workflows:
             branches:
               only:
                 - main
+      - sonar:
+          requires:
+            - testing
+          context: SonarCloud
 jobs:
   prepare:
     executor: docker-node
@@ -102,3 +107,11 @@ jobs:
       - run:
           name: "Deploy jest coverage artifacts"
           command: yarn deploy:coverage --domain https://messages-coverage.surge.sh
+  sonar:
+    executor: docker-node
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/repo
+      - sonarcloud/scan
