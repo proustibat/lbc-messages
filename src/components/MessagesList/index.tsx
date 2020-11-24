@@ -2,6 +2,7 @@ import React from 'react';
 import Message, { MessageProps } from '../Message';
 import { Box, Theme, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { useTranslation } from "react-i18next";
 
 export type MessagesListProps = {
   messages: MessageProps[];
@@ -21,6 +22,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 export const MessagesList = ({ messages }: MessagesListProps) => {
   const classes = useStyles();
+  const { t } = useTranslation();
   return (
     <Box className={classes.root}>
       <Typography
@@ -30,8 +32,8 @@ export const MessagesList = ({ messages }: MessagesListProps) => {
         data-testid="counter"
       >
         {messages.length
-          ? `${messages.length} messages` // TODO: Use i18n for plural
-          : 'The list is empty!'}
+          ? t('messageWithCounter', {count: messages.length})
+          : t('empty-list')}
       </Typography>
       {messages.length > 0 && (
         <>

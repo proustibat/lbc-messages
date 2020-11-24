@@ -1,0 +1,6 @@
+{
+  "hello": "it works",
+  "empty-list": "The list is empty! \uD83D\uDE33",
+  "messageWithCounter": "There is {{count}} message",
+  "messageWithCounter_plural": "There are {{count}} messages"
+}
