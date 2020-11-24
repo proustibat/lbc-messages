@@ -1,10 +1,7 @@
 import React from 'react';
 import { render, cleanup } from '@testing-library/react';
-import { toMatchDiffSnapshot } from 'snapshot-diff';
 import { MessagesList } from './index';
 import { messages } from '../../fixtures/messages';
-
-expect.extend({ toMatchDiffSnapshot });
 
 describe('MessagesList', () => {
   afterEach(cleanup);

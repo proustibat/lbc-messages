@@ -4,7 +4,7 @@ import { withMuiTheme } from '@harelpls/storybook-addon-materialui';
 import themes from '../src/themes';
 
 export const parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
+  actions: { argTypesRegex: '^on.*' },
   controls: { expanded: true },
 };
 
