@@ -13,7 +13,7 @@ describe('MessagesList', () => {
     );
 
     // Then
-    expect(getByTestId('counter').textContent).toBe('The list is empty!');
+    expect(getByTestId('counter').textContent).toBe('empty-list');
     expect(queryAllByTestId('message-accordion')).toHaveLength(0)
   });
 
@@ -31,6 +31,6 @@ describe('MessagesList', () => {
     const { getByTestId } = render(<MessagesList messages={messages} />);
 
     // Then
-    expect(getByTestId('counter').textContent).toBe(`${messages.length} messages`);
+    expect(getByTestId('counter').textContent).toBe('messageWithCounter');
   });
 });

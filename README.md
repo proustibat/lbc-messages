@@ -46,6 +46,13 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
+### Internationalization
+We use [react-i18next](https://react.i18next.com/), a powerful internationalization framework for React / React Native which is based on [i18next](https://www.i18next.com/).
+You can find translation files in `./public/locales`.
+
+With [i18next-browser-languagedetector](https://github.com/i18next/i18next-browser-languageDetector) we set the browser language as the default app language. You can run the app in another language by adding `?lng=XX`, for example: [https://messages.surge.sh/?lng=en](https://messages.surge.sh/?lng=en) or [https://messages.surge.sh/?lng=fr](https://messages.surge.sh/?lng=fr).
+
+
 ### Commits
 This repo is Commitizen-friendly. It means you'll be prompted to fill out any required commit fields at commit time. 
 Learn more about [commitizen cli](https://github.com/commitizen/cz-cli).
@@ -167,3 +174,5 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 - [CircleCI](https://circleci.com)
 - [Material-ui](https://material-ui.com/)
 - [Storybook](https://storybook.js.org/)
+- [react-i18next](https://react.i18next.com/)
+- [i18next-browser-languagedetector](https://github.com/i18next/i18next-browser-languageDetector)
