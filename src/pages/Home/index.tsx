@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useEffect, Fragment } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { makeStyles } from '@material-ui/core/styles';
+import { Box, Container, LinearProgress } from '@material-ui/core';
+import Skeleton from '@material-ui/lab/Skeleton';
 import Intro from './components/Intro';
 import MessagesList from '../../components/MessagesList';
 import ButtonPlus from '../../components/ButtonPlus';
-import { makeStyles } from '@material-ui/core/styles';
-import { Box, Container } from '@material-ui/core';
+import { getMessages } from '../../state/actions/messagesActions';
+import { RootReducersType } from '../../state/reducers';
+import { MessageProps } from '../../components/Message';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -22,14 +27,44 @@ const useStyles = makeStyles(theme => ({
   messageList: {
     marginTop: theme.spacing(2),
   },
+  skeleton: {
+    marginBottom: theme.spacing(1),
+  },
 }));
 
 export const Home = () => {
   const classes = useStyles();
+  const dispatch = useDispatch();
+
+  const [
+    messages,
+    isLoadingMessages,
+  ] = useSelector(({ messages: { items, loading } }: RootReducersType) => [
+    items,
+    loading,
+  ]);
+
+  const renderLoading = () => (
+    <>
+      <LinearProgress />
+      {Array.from({ length: 20 }).map((_, i) => (
+        <Skeleton
+          key={i}
+          className={classes.skeleton}
+          variant="text"
+          animation="wave"
+        />
+      ))}
+    </>
+  );
 
   const handlePlus = () => {
     console.log('handle plus button');
   };
+
+  useEffect(() => {
+    dispatch(getMessages());
+  }, [dispatch]);
 
   return (
     <>
@@ -40,7 +75,11 @@ export const Home = () => {
       </div>
       <Container maxWidth="sm" className={classes.root}>
         <Box className={classes.messageList}>
-          <MessagesList messages={[]} />
+          {isLoadingMessages ? (
+            renderLoading()
+          ) : (
+            <MessagesList messages={messages as MessageProps[]} />
+          )}
         </Box>
         <Box
           className={classes.plusButton}
