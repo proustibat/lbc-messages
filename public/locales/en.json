@@ -1,7 +1,8 @@
 {
-  "hello": "it works",
   "empty-list": "The list is empty! \uD83D\uDE33",
   "messageWithCounter": "There is {{count}} message",
   "messageWithCounter_plural": "There are {{count}} messages",
-  "go-back-home": "Go back home"
+  "go-back-home": "Go back home",
+  "home-title": "Welcome to LBC challenge",
+  "home-intro": "Develop an interface to read messages. The app will give the user the ability to post a new message."
 }
