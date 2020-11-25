@@ -176,3 +176,5 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 - [Storybook](https://storybook.js.org/)
 - [react-i18next](https://react.i18next.com/)
 - [i18next-browser-languagedetector](https://github.com/i18next/i18next-browser-languageDetector)
+- [Redux](https://redux.js.org/) using [React-Redux](https://react-redux.js.org/)
+- [Axios](https://github.com/axios/axios)
