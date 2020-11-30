@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { makeStyles } from '@material-ui/core/styles';
-import { Box, Container, LinearProgress } from '@material-ui/core';
+import { Box, Container, LinearProgress, makeStyles } from '@material-ui/core';
 import Skeleton from '@material-ui/lab/Skeleton';
 import Intro from './components/Intro';
 import MessagesList from '../../components/MessagesList';
