@@ -1,4 +1,4 @@
-import React, { useEffect, Fragment } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import { Box, Container, LinearProgress } from '@material-ui/core';
@@ -6,7 +6,7 @@ import Skeleton from '@material-ui/lab/Skeleton';
 import Intro from './components/Intro';
 import MessagesList from '../../components/MessagesList';
 import ButtonPlus from '../../components/ButtonPlus';
-import { getMessages } from '../../state/actions/messagesActions';
+import { requestMessages } from '../../state/actions/messagesActions';
 import { RootReducersType } from '../../state/reducers';
 import { MessageProps } from '../../components/Message';
 
@@ -63,7 +63,7 @@ export const Home = () => {
   };
 
   useEffect(() => {
-    dispatch(getMessages());
+    dispatch(requestMessages());
   }, [dispatch]);
 
   return (
