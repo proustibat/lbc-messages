@@ -1,9 +1,5 @@
 import { AxiosResponse } from 'axios';
-import {
-  messagesActionTypes as Actions,
-  SUFFIX_SUCCESS,
-  SUFFIX_FAILURE,
-} from '../actionsTypes';
+import { messagesActionTypes as Actions } from '../actionsTypes';
 import { MessageProps } from '../../components/Message';
 
 export type MessagesReducerType = {
@@ -11,7 +7,7 @@ export type MessagesReducerType = {
   loading: boolean;
 };
 
-const initialState: MessagesReducerType = {
+export const initialState: MessagesReducerType = {
   items: [],
   loading: false,
 };
@@ -20,7 +16,7 @@ const messagesReducer = (
   state = initialState,
   action: {
     type: Actions;
-    payload: { data?: unknown; request?: AxiosResponse };
+    payload?: { data?: unknown; request?: AxiosResponse };
   },
 ) => {
   switch (action.type) {
@@ -29,13 +25,12 @@ const messagesReducer = (
         ...state,
         loading: true,
       };
-    case `${Actions.REQUEST_MESSAGES}${SUFFIX_FAILURE}`:
+    case Actions.REQUEST_MESSAGES_FAILURE:
       return {
         ...state,
         loading: false,
       };
-    case `${Actions.REQUEST_MESSAGES}${SUFFIX_SUCCESS}`:
-      console.log({ action });
+    case Actions.REQUEST_MESSAGES_SUCCESS:
       return {
         ...state,
         items: (action?.payload?.data as { messages: MessageProps[] })
