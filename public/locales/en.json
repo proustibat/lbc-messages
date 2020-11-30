@@ -7,5 +7,6 @@
   "home-intro": "Develop an interface to read messages. The app will give the user the ability to post a new message.",
   "title": "Titre",
   "message": "Message",
-  "send": "Envoyer"
+  "send": "Envoyer",
+  "add-new-message": "Add a new message"
 }
