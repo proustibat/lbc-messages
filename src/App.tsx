@@ -5,6 +5,7 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import { Provider } from 'react-redux';
 import configureStore from './state/configureStore';
 import { Home } from './pages/Home';
+import { AddMessage } from './pages/AddMessage';
 import themes from './themes';
 import './i18n';
 import { useTranslation } from 'react-i18next';
@@ -24,6 +25,7 @@ const App = () => {
           <CssBaseline />
           <Switch>
             <Route path="/" exact={true} children={<Home />} />
+            <Route path="/add" exact={true} children={<AddMessage />} />
             <Route path="*">
               <Container>
                 <Paper>

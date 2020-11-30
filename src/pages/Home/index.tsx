@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { Box, Container, LinearProgress, makeStyles } from '@material-ui/core';
 import Skeleton from '@material-ui/lab/Skeleton';
-import Intro from './components/Intro';
+import Intro from '../../components/Intro';
 import MessagesList from '../../components/MessagesList';
 import ButtonPlus from '../../components/ButtonPlus';
 import { requestMessages } from '../../state/actions/messagesActions';
@@ -12,10 +13,6 @@ import { MessageProps } from '../../components/Message';
 const useStyles = makeStyles(theme => ({
   root: {
     paddingBottom: theme.spacing(12),
-  },
-  intro: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(4, 0, 4),
   },
   plusButton: {
     position: 'fixed',
@@ -34,6 +31,7 @@ const useStyles = makeStyles(theme => ({
 export const Home = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const [
     messages,
@@ -57,21 +55,17 @@ export const Home = () => {
     </>
   );
 
-  const handlePlus = () => {
-    console.log('handle plus button');
-  };
+  const handlePlus = () => history.push('/add');
 
   useEffect(() => {
-    dispatch(requestMessages());
-  }, [dispatch]);
+    if (!messages || (messages && (messages as MessageProps[])?.length === 0)) {
+      dispatch(requestMessages());
+    }
+  }, [dispatch, messages]);
 
   return (
     <>
-      <div className={classes.intro}>
-        <Container maxWidth="sm">
-          <Intro />
-        </Container>
-      </div>
+      <Intro />
       <Container maxWidth="sm" className={classes.root}>
         <Box className={classes.messageList}>
           {isLoadingMessages ? (
