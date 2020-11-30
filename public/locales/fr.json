@@ -4,5 +4,8 @@
   "messageWithCounter_plural": "Il y a {{count}} messages",
   "go-back-home": "Revenir a l'accueil",
   "home-title": "Bienvenue a l'exercice LBC",
-  "home-intro": "Développer une interface capable de lister des messages. Elle permettra également de remplir un message pour le poster."
+  "home-intro": "Développer une interface capable de lister des messages. Elle permettra également de remplir un message pour le poster.",
+  "title": "Title",
+  "message": "Message",
+  "send": "Send"
 }

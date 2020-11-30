@@ -2,6 +2,7 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react';
 
 import { ButtonPlus as ButtonPlusComponent, ButtonPlusProps } from './index';
+import { action } from "@storybook/addon-actions";
 
 export default {
   title: 'ButtonPlus',
@@ -12,6 +13,6 @@ const Template: Story<ButtonPlusProps> = args => <ButtonPlusComponent {...args} 
 
 export const ButtonPlus = Template.bind({});
 ButtonPlus.args = {
-  onClick: () => {},
+  onClick: () => action('onClick')(),
   disabled: false
 };

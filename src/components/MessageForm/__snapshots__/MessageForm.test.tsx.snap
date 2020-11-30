@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MessagesList should enable the submit button when fields have been filled 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -1,10 +1,9 @@
+  <button
+-   class=\\"MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary Mui-disabled Mui-disabled\\"
++   class=\\"MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary\\"
+    data-testid=\\"submit-button\\"
+-   disabled=\\"\\"
+-   tabindex=\\"-1\\"
++   tabindex=\\"0\\"
+    type=\\"button\\"
+  >
+    <span
+      class=\\"MuiButton-label\\"
+    >
+@@ -18,6 +17,9 @@
+        <path
+          d=\\"M2.01 21L23 12 2.01 3 2 10l15 2-15 2z\\"
+        />
+      </svg>
+    </span>
++   <span
++     class=\\"MuiTouchRipple-root\\"
++   />
+  </button>"
+`;
+
+exports[`MessagesList should render the form correctly by default 1`] = `
+<div>
+  <div
+    class="MuiBox-root MuiBox-root-1 root_background-#fafafa root_borderRadius-4 root_boxShadow-0px 3px 3px -2px rgba(0,0,0,0.2),0px 3px 4px 0px rgba(0,0,0,0.14),0px 1px 8px 0px rgba(0,0,0,0.12) root_padding-16"
+  >
+    <form
+      autocomplete="off"
+      novalidate=""
+    >
+      <div
+        class="MuiFormControl-root MuiTextField-root textField_display-block textField_marginBottom-16 MuiFormControl-fullWidth"
+        data-testid="input-title"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+          data-shrink="false"
+          for="title"
+          id="title-label"
+        >
+          title
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl"
+        >
+          <input
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input"
+            id="title"
+            type="text"
+            value=""
+          />
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root-2 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled-4"
+            >
+              <span>
+                title
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <div
+        class="MuiFormControl-root MuiTextField-root textField_display-block textField_marginBottom-16 MuiFormControl-fullWidth"
+        data-testid="input-message"
+      >
+        <label
+          class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-outlined"
+          data-shrink="false"
+          for="message"
+          id="message-label"
+        >
+          message
+        </label>
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-multiline MuiOutlinedInput-multiline"
+        >
+          <textarea
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline MuiOutlinedInput-inputMultiline"
+            id="message"
+            rows="4"
+          />
+          <fieldset
+            aria-hidden="true"
+            class="PrivateNotchedOutline-root-2 MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="PrivateNotchedOutline-legendLabelled-4"
+            >
+              <span>
+                message
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary Mui-disabled Mui-disabled"
+        data-testid="submit-button"
+        disabled=""
+        tabindex="-1"
+        type="button"
+      >
+        <span
+          class="MuiButton-label"
+        >
+          send
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root rightIcon_marginLeft-16"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"
+            />
+          </svg>
+        </span>
+      </button>
+    </form>
+  </div>
+</div>
+`;
