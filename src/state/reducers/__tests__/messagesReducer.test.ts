@@ -52,4 +52,17 @@ describe('Messages Reducer', () => {
     // Then
     expect(state).toStrictEqual(expectedStateAfterMessagesRequesting);
   });
+
+  it('should save the new message when sending it', () => {
+    // Given
+    const payload = { data: { title: 'my title', message: 'my message' } };
+    const action = { type: Actions.SEND_MESSAGE_SUCCESS, payload };
+    const expectedState = { items: [payload.data], loading: false };
+
+    // When
+    const state = messagesReducer(initialState, action);
+
+    // Then
+    expect(state).toStrictEqual(expectedState);
+  });
 });

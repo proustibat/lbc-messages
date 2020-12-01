@@ -1,5 +1,11 @@
 import React, { ChangeEvent, useState } from 'react';
-import { Box, Theme, TextField, Button } from '@material-ui/core';
+import {
+  Box,
+  Theme,
+  TextField,
+  Button,
+  CircularProgress,
+} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { useTranslation } from 'react-i18next';
 import { Send } from '@material-ui/icons';
@@ -22,9 +28,13 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 export type MessageFormProps = {
   onSubmit: (data: { title: string; message: string }) => void;
+  loading?: boolean;
 };
 
-export const MessageForm = ({ onSubmit }: MessageFormProps) => {
+export const MessageForm = ({
+  onSubmit,
+  loading = false,
+}: MessageFormProps) => {
   const classes = useStyles();
   const { t } = useTranslation();
   const [title, setTitle] = useState<string>('');
@@ -75,11 +85,15 @@ export const MessageForm = ({ onSubmit }: MessageFormProps) => {
           variant="contained"
           color="primary"
           onClick={handleSubmit}
-          disabled={!(title.length > 0 && message.length > 0)}
+          disabled={loading || !(title.length > 0 && message.length > 0)}
           data-testid="submit-button"
         >
           {t('send')}
-          <Send className={classes.rightIcon} />
+          {loading ? (
+            <CircularProgress className={classes.rightIcon} size={20} />
+          ) : (
+            <Send className={classes.rightIcon} />
+          )}
         </Button>
       </form>
     </Box>

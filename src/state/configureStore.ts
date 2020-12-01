@@ -7,6 +7,7 @@ import axios from 'axios';
 import axiosMiddleware from 'redux-axios-middleware';
 
 const client = axios.create({
+  baseURL: "https://api.mocki.io/v1/",
   responseType: 'json',
 });
 

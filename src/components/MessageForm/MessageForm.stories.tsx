@@ -15,4 +15,5 @@ const Template: Story<MessageFormProps> = args => (
 export const MessageForm = Template.bind({});
 MessageForm.args = {
   onSubmit: data => action('onSubmit')(data),
+  loading: false
 };
