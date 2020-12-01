@@ -7,6 +7,6 @@
   "home-intro": "Développer une interface capable de lister des messages. Elle permettra également de remplir un message pour le poster.",
   "title": "Title",
   "message": "Message",
-  "send": "Send",
+  "send": "Envoyer",
   "add-new-message": "Ajouter un nouveau message"
 }

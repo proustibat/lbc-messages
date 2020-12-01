@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react';
 import { AppLoader as AppLoaderComponent } from './index';
 
 export default {
-  title: 'AppLoader',
+  title: 'components/AppLoader',
   component: AppLoaderComponent,
 } as Meta;
 

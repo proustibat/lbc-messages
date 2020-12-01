@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react';
 import { Intro as IntroComponent } from './index';
 
 export default {
-  title: 'Intro',
+  title: 'components/Intro',
   component: IntroComponent,
 } as Meta;
 

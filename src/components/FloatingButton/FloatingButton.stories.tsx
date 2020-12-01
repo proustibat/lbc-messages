@@ -9,7 +9,7 @@ import {
 import { action } from "@storybook/addon-actions";
 
 export default {
-  title: 'FloatingButton',
+  title: 'components/FloatingButton',
   component: FloatingButtonComponent,
   argTypes: {
     icon: {

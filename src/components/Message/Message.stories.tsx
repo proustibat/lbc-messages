@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react';
 import { Message as MessageComponent, MessageProps } from './index';
 
 export default {
-  title: 'Message',
+  title: 'components/Message',
   component: MessageComponent,
 } as Meta;
 

@@ -4,7 +4,7 @@ import { MessageForm as MessageFormComponent, MessageFormProps } from './index';
 import { action } from '@storybook/addon-actions';
 
 export default {
-  title: 'MessageForm',
+  title: 'components/MessageForm',
   component: MessageFormComponent,
 } as Meta;
 

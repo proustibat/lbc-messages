@@ -8,7 +8,7 @@ import {
 import { messages } from '../../fixtures/messages';
 
 export default {
-  title: 'MessagesList',
+  title: 'components/MessagesList',
   component: MessagesListComponent,
 } as Meta;
 
