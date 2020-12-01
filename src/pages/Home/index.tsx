@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { Box, Container, LinearProgress, makeStyles } from '@material-ui/core';
-import Skeleton from '@material-ui/lab/Skeleton';
-import Intro from '../../components/Intro';
-import MessagesList from '../../components/MessagesList';
-import ButtonPlus from '../../components/ButtonPlus';
-import { requestMessages } from '../../state/actions/messagesActions';
-import { RootReducersType } from '../../state/reducers';
-import { MessageProps } from '../../components/Message';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { Box, Container, LinearProgress, makeStyles } from "@material-ui/core";
+import Skeleton from "@material-ui/lab/Skeleton";
+import Intro from "../../components/Intro";
+import FloatingButton, { IconVariant } from "../../components/FloatingButton";
+import { MessageProps } from "../../components/Message";
+import MessagesList from "../../components/MessagesList";
+import { requestMessages } from "../../state/actions/messagesActions";
+import { RootReducersType } from "../../state/reducers";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -79,7 +79,7 @@ export const Home = () => {
           display="flex"
           justifyContent="center"
         >
-          <ButtonPlus onClick={handlePlus} />
+          <FloatingButton onClick={handlePlus} icon={IconVariant.ADD} />
         </Box>
       </Container>
     </>
