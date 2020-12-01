@@ -37,6 +37,15 @@ const messagesReducer = (
           ?.messages,
         loading: false,
       };
+    case Actions.SEND_MESSAGE_SUCCESS:
+      return {
+        ...state,
+        items: [
+          ...state.items,
+          action.payload?.data
+        ],
+        loading: false,
+      };
     default:
       return state;
   }

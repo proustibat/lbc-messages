@@ -1,7 +1,8 @@
 import React from 'react';
-import { render, cleanup, fireEvent, within } from '@testing-library/react';
+import { render, cleanup, fireEvent } from '@testing-library/react';
 import { toMatchDiffSnapshot } from 'snapshot-diff';
 import { MessageForm, MessageFormProps } from './index';
+import { fillForm } from '../../test-utils';
 
 expect.extend({ toMatchDiffSnapshot });
 
@@ -23,45 +24,35 @@ describe('MessagesList', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('should enable the submit button when fields have been filled', () => {
+  it('should render the form correctly wih a loader', () => {
+    // Given / When
+    const { container } = render(<MessageForm {...props} loading={true} />);
+
+    // Then
+    expect(container).toMatchSnapshot();
+  });
+
+  it('should enable the submit button when fields have been filled', async () => {
     // Given
     const { asFragment, getByTestId } = render(<MessageForm {...props} />);
     const firstRender = asFragment().querySelector('button');
 
     // When
-    fireEvent.change(
-      getByTestId('input-title').querySelector('input') as HTMLInputElement,
-      { target: { value: 'title' } },
-    );
-    fireEvent.change(
-      getByTestId('input-message').querySelector(
-        'textarea',
-      ) as HTMLTextAreaElement,
-      { target: { value: 'message' } },
-    );
+    await fillForm(getByTestId, { title: "title", message: "message" }, false);
     const secondRender = asFragment().querySelector('button');
 
     // Then
     expect(firstRender).toMatchDiffSnapshot(secondRender);
   });
 
-  it('should submit the filled data', () => {
+  it('should submit the filled data', async () => {
     // Given
     const { getByTestId } = render(<MessageForm {...props} />);
-    const inputTitle = getByTestId('input-title').querySelector(
-      'input',
-    ) as HTMLInputElement;
-    const inputMessage = getByTestId('input-message').querySelector(
-      'textarea',
-    ) as HTMLTextAreaElement;
-    const buttonSubmit = getByTestId('submit-button');
 
     // When
     const title = 'My awesome title';
     const message = 'My awesome message';
-    fireEvent.change(inputTitle, { target: { value: title } });
-    fireEvent.change(inputMessage, { target: { value: message } });
-    fireEvent.click(buttonSubmit);
+    await fillForm(getByTestId, { title, message }, true);
 
     // Then
     expect(props.onSubmit).toHaveBeenCalledTimes(1);
