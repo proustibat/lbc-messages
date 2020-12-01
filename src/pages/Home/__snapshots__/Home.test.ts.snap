@@ -301,7 +301,7 @@ exports[`Home view given the store has messages should render the view correctly
       <button
         aria-label="add"
         class="MuiButtonBase-root MuiFab-root root_backgroundColor-#3f51b5 root_color-#fff"
-        data-testid="plus-button"
+        data-testid="floating-button"
         tabindex="0"
         type="button"
       >
@@ -371,7 +371,7 @@ exports[`Home view given the store has not any messages should render the view c
       <button
         aria-label="add"
         class="MuiButtonBase-root MuiFab-root root_backgroundColor-#3f51b5 root_color-#fff"
-        data-testid="plus-button"
+        data-testid="floating-button"
         tabindex="0"
         type="button"
       >
@@ -502,7 +502,7 @@ exports[`Home view given the store is loading messages should render the view co
       <button
         aria-label="add"
         class="MuiButtonBase-root MuiFab-root root_backgroundColor-#3f51b5 root_color-#fff"
-        data-testid="plus-button"
+        data-testid="floating-button"
         tabindex="0"
         type="button"
       >

@@ -10,6 +10,11 @@ module.exports = ({ config }) => {
   //     }),
   //   ],
   // };
-  config.optimization.minimizer[0].parallel = true;
+  if (
+    config?.optimization?.minimizer &&
+    config?.optimization?.minimizer.length > 0
+  ) {
+    config.optimization.minimizer[0].parallel = true;
+  }
   return config;
 };

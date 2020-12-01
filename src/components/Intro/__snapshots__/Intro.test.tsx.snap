@@ -2,15 +2,23 @@
 
 exports[`Intro should render correctly by default 1`] = `
 <div>
-  <h1
-    class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom MuiTypography-alignCenter MuiTypography-displayBlock"
+  <div
+    class="intro_backgroundColor-#fff intro_padding-32px 0px 32px"
   >
-    home-title
-  </h1>
-  <p
-    class="MuiTypography-root MuiTypography-h6 MuiTypography-colorTextSecondary MuiTypography-alignCenter"
-  >
-    home-intro
-  </p>
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthSm"
+    >
+      <h1
+        class="MuiTypography-root MuiTypography-h3 MuiTypography-gutterBottom MuiTypography-alignCenter MuiTypography-displayBlock"
+      >
+        home-title
+      </h1>
+      <p
+        class="MuiTypography-root MuiTypography-h6 MuiTypography-colorTextSecondary MuiTypography-alignCenter"
+      >
+        home-intro
+      </p>
+    </div>
+  </div>
 </div>
 `;

@@ -1,10 +1,10 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Box, Container, makeStyles, Typography } from '@material-ui/core';
 import MessageForm from '../../components/MessageForm';
 import Intro from '../../components/Intro';
-import { useTranslation } from 'react-i18next';
-import ButtonPlus from '../../components/ButtonPlus';
+import FloatingButton, { IconVariant } from '../../components/FloatingButton';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -57,7 +57,7 @@ export const AddMessage = () => {
           display="flex"
           justifyContent="center"
         >
-          <ButtonPlus onClick={handleHomeButton} />
+          <FloatingButton onClick={handleHomeButton} icon={IconVariant.HOME} />
         </Box>
       </Container>
     </>
